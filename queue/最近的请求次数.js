@@ -22,4 +22,6 @@ console.log(r);
 console.log(r.ping(1));
 r.ping(2);
 r.ping(3001);
-r.ping(7000);
+r.ping(3002);
+
+console.log(r);
