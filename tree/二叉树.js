@@ -28,6 +28,8 @@ const bt = {
   },
 };
 
+//递归版
+
 //先序遍历 根 -> 左节点 -> 右节点
 const preorder = (root) => {
   if (!root) return;
@@ -60,3 +62,60 @@ const postorder = (root) => {
 
 console.log("---------");
 postorder(bt);
+
+//非递归版
+
+//先序遍历
+
+const fpreorder = (root) => {
+  if (!root) return;
+  const stack = [root];
+  while (stack.length) {
+    const n = stack.pop();
+    console.log(n.val);
+    if (n.right) stack.push(n.right);
+    if (n.left) stack.push(n.left);
+  }
+};
+
+console.log("---------");
+fpreorder(bt);
+
+//中序遍历
+const finorder = (root) => {
+  if (!root) return;
+  const stack = [];
+  let p = root;
+  while (stack.length || p) {
+    while (p) {
+      stack.push(p);
+      p = p.left;
+    }
+    const n = stack.pop();
+    p = n.right;
+  }
+};
+
+finorder(bt);
+
+//后序遍历
+const fpostorder = (root) => {
+  if (!root) return;
+  const outputStack = [];
+  const stack = [root];
+  while (stack.length) {
+    const n = stack.pop();
+    outputStack.push(n);
+
+    if (n.left) stack.push(n.left);
+    if (n.right) stack.push(n.right);
+  }
+
+  while (outputStack.length) {
+    const n = outputStack.pop();
+    console.log(n.val);
+  }
+};
+
+console.log("-------------");
+fpostorder(bt);
