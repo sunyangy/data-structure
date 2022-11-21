@@ -81,7 +81,7 @@ const fpreorder = (root) => {
 console.log("---------");
 fpreorder(bt);
 
-//中序遍历
+//中序遍历 leetCode 94
 const finorder = (root) => {
   if (!root) return;
   const stack = [];
