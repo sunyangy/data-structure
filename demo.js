@@ -1,10 +1,7 @@
-const height = [
-  [0, 0],
-  [1, 1],
-];
+const res = [5, 4, 3, 2, 1];
 
-const arr = Array.from({ length: 5 }, (v, i) => {
-  i;
+const arr = [];
+
+res.forEach((n, i) => {
+  console.table({ n, i });
 });
-
-console.log(arr);
